@@ -87,7 +87,7 @@
          //   $("#divResult").html(JSON.stringify(nodes));
 				//实例化树型
 				$("#tree").tree({
-					url:"/SchoolManage/AllController.action",//服务器数据
+					url:"/TeamSchoolManage/AllController.action",//服务器数据
 					
 					 loadFilter: function(data){ 
 					 
