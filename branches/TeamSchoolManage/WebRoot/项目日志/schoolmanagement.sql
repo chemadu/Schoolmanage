@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-04-23 15:00:51
+Date: 2018-04-24 10:18:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,7 +37,7 @@ CREATE TABLE `class` (
 -- ----------------------------
 -- Records of class
 -- ----------------------------
-INSERT INTO `class` VALUES ('1', '云时代1班', '3', '4', 'ysd/ysd1.jpg', '2018-04-15 21:14:12', '2018-04-19 23:47:45');
+INSERT INTO `class` VALUES ('1', '云时代1班', '3', '4', 'ysd/ysd1.jpg', '2018-04-15 21:14:12', '2018-04-23 16:54:33');
 INSERT INTO `class` VALUES ('2', '云时代2班', '3', '5', 'ysd/ysd2.jpg', '2018-04-15 21:14:32', '2018-04-19 23:47:46');
 INSERT INTO `class` VALUES ('3', '云时代3班', '3', '6', 'ysd/ysd3.jpg', '2018-04-15 21:14:44', '2018-04-19 23:47:48');
 INSERT INTO `class` VALUES ('4', '普通电商1班', '4', '6', null, '2018-04-20 17:50:01', '2018-04-20 17:50:01');
@@ -61,7 +61,7 @@ CREATE TABLE `curriculum` (
 -- ----------------------------
 -- Records of curriculum
 -- ----------------------------
-INSERT INTO `curriculum` VALUES ('1', '电子商务英语', '王猛', '无', '2018-04-19 23:39:16', '2018-04-22 20:43:27');
+INSERT INTO `curriculum` VALUES ('1', '电子商务英语', '王猛', '。。。', '2018-04-19 23:39:16', '2018-04-23 17:30:42');
 INSERT INTO `curriculum` VALUES ('2', 'java基础', '栗梧桐', '无', '2018-04-15 21:17:05', '2018-04-22 20:30:20');
 INSERT INTO `curriculum` VALUES ('3', '大学语文', '路畅通', '无', '2018-04-15 21:17:10', '2018-04-22 20:30:20');
 INSERT INTO `curriculum` VALUES ('4', '思想品德', '张三', '无', '2018-04-15 21:17:21', '2018-04-22 20:30:20');
@@ -183,7 +183,6 @@ CREATE TABLE `modular` (
 -- ----------------------------
 -- Records of modular
 -- ----------------------------
-INSERT INTO `modular` VALUES ('1', '学籍管理', null, '9', null, null, '2018-04-15 21:22:03', '2018-04-16 14:45:42');
 INSERT INTO `modular` VALUES ('2', '院系管理', null, '9', 'teacher/faculty.jsp', null, '2018-04-15 21:22:20', '2018-04-17 08:19:07');
 INSERT INTO `modular` VALUES ('3', '班级管理', null, '9', 'teacher/stuClass.jsp', null, '2018-04-15 21:22:36', '2018-04-20 21:56:06');
 INSERT INTO `modular` VALUES ('4', '教师管理', null, '9', null, null, '2018-04-15 21:22:46', '2018-04-16 14:45:43');
@@ -218,7 +217,6 @@ CREATE TABLE `module_role` (
 -- ----------------------------
 -- Records of module_role
 -- ----------------------------
-INSERT INTO `module_role` VALUES ('1', '1', '1', '2018-04-15 21:26:48', '2018-04-15 21:26:48');
 INSERT INTO `module_role` VALUES ('2', '1', '2', '2018-04-15 21:26:52', '2018-04-15 21:26:52');
 INSERT INTO `module_role` VALUES ('3', '1', '3', '2018-04-15 21:26:55', '2018-04-15 21:26:55');
 INSERT INTO `module_role` VALUES ('4', '1', '4', '2018-04-15 21:26:59', '2018-04-15 21:26:59');
@@ -295,16 +293,16 @@ INSERT INTO `roles` VALUES ('1', '管理员', null, '2018-04-15 21:26:31', '2018
 INSERT INTO `roles` VALUES ('2', '学生', null, '2018-04-16 14:51:52', '2018-04-16 14:51:52');
 
 -- ----------------------------
--- Table structure for school
+-- Table structure for schoolstatus
 -- ----------------------------
-DROP TABLE IF EXISTS `school`;
-CREATE TABLE `school` (
+DROP TABLE IF EXISTS `schoolstatus`;
+CREATE TABLE `schoolstatus` (
   `school_stunum` varchar(50) NOT NULL COMMENT '学号',
   `school_name` varchar(10) NOT NULL COMMENT '学生姓名',
   `school_birthday` datetime NOT NULL,
   `school_nation` varchar(20) NOT NULL,
   `school_sex` char(2) NOT NULL,
-  `school_testnum` int(11) NOT NULL COMMENT '考生号',
+  `school_testnum` int(11) DEFAULT NULL COMMENT '考生号',
   `school_schoolname` varchar(20) NOT NULL COMMENT '就读院校',
   `school_admission` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '入学日期',
   `school_arrangement` varchar(10) NOT NULL COMMENT '层次（大专、本科、研究生）',
@@ -313,15 +311,19 @@ CREATE TABLE `school` (
   `school_professional` varchar(20) NOT NULL COMMENT '专业名称',
   `school_class` varchar(20) NOT NULL COMMENT '班级名',
   `school_state` varchar(10) NOT NULL COMMENT '学籍状态',
+  `school_img` varchar(255) DEFAULT NULL,
   `student_creattime` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `student_updatetime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后一次修改时间',
-  PRIMARY KEY (`school_stunum`)
+  PRIMARY KEY (`school_stunum`),
+  UNIQUE KEY `school_stunum` (`school_stunum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of school
+-- Records of schoolstatus
 -- ----------------------------
-INSERT INTO `school` VALUES ('2016040538', '王聪豪', '2018-04-13 21:30:43', '汉族', '男', '2200391', '安阳职业技术学院', '2018-04-15 21:33:05', '大专', '3年', '经管系', '电子商务', '1603', '未毕业', '2018-04-15 21:33:05', '2018-04-15 21:33:05');
+INSERT INTO `schoolstatus` VALUES ('2016040538', '王聪豪', '2018-04-13 21:30:43', '汉族', '男', '2200391', '安阳职业技术学院', '2018-04-24 08:14:14', '研究生', '3年', '经管系', '电子商务', '1603', '未毕业', '1524528854378.jpg', '2018-04-15 21:33:05', '2018-04-24 08:14:14');
+INSERT INTO `schoolstatus` VALUES ('2016040539', '王弱', '2018-04-13 21:30:43', '汉族', '男', '220031554', '安阳职业技术学院', '2018-04-24 08:59:59', '大专', '3年', '经管系', '电子商务', '1603', '以毕业', '1524531599358.jpg', '2018-04-24 08:28:20', '2018-04-24 08:59:59');
+INSERT INTO `schoolstatus` VALUES ('2016040540', '路畅通', '2018-04-13 21:30:43', '汉族', '男', null, '安阳职业技术学院', '2018-04-24 09:57:16', '研究生', '3年', '经管系', '电子商务', '1603', '未毕业', '1524535036803.jpg', '2018-04-24 09:09:38', '2018-04-24 09:57:16');
 
 -- ----------------------------
 -- Table structure for student
@@ -341,26 +343,28 @@ CREATE TABLE `student` (
   PRIMARY KEY (`student_id`),
   KEY `class_id` (`class_id`),
   CONSTRAINT `student_ibfk_2` FOREIGN KEY (`class_id`) REFERENCES `class` (`class_id`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of student
 -- ----------------------------
 INSERT INTO `student` VALUES ('1', '2016040538', '李五通', '18722642741', '932875723', '1', '3', 's', '2018-04-15 21:35:56', '2018-04-19 10:20:24');
-INSERT INTO `student` VALUES ('2', '', '路不通', '18337295927', '1242184781', '1', '3', null, '2018-04-15 22:12:34', '2018-04-19 10:20:24');
-INSERT INTO `student` VALUES ('3', '', '王弱', '18654855621', '854254524', '1', '3', '', '2018-04-17 08:44:52', '2018-04-19 10:20:25');
-INSERT INTO `student` VALUES ('4', '', '刘二彬', '15688559981', '487546331', '1', '3', null, '2018-04-17 08:46:40', '2018-04-19 10:20:25');
-INSERT INTO `student` VALUES ('5', '', '赵地短', '15642546841', '456887412', '1', '3', null, '2018-04-17 08:47:04', '2018-04-19 10:20:25');
-INSERT INTO `student` VALUES ('6', '', '胡鑫扁', '15875565561', '557845355', '1', '3', null, '2018-04-17 08:47:34', '2018-04-19 10:20:26');
-INSERT INTO `student` VALUES ('7', '', '李佳慧', '12312341234', '12312312331', '2', '3', null, '2018-04-17 21:23:43', '2018-04-20 17:56:39');
-INSERT INTO `student` VALUES ('8', '', '12312', '18337295927', '958474738', '2', '3', null, '2018-04-17 21:26:52', '2018-04-20 17:56:40');
-INSERT INTO `student` VALUES ('9', null, '1231', '18337295927', '958474738', '2', '3', null, '2018-04-19 08:46:02', '2018-04-20 17:56:41');
-INSERT INTO `student` VALUES ('10', null, '毕割接', '15155682235', '568424568', '3', '3', null, '2018-04-19 11:48:14', '2018-04-19 11:48:14');
-INSERT INTO `student` VALUES ('11', null, '刘三彬', '18565478564', '236598', '4', '4', null, '2018-04-19 16:47:14', '2018-04-20 17:59:00');
-INSERT INTO `student` VALUES ('12', null, '是多少', '15341231234', '545785', '4', '4', null, '2018-04-19 16:50:56', '2018-04-20 17:57:16');
-INSERT INTO `student` VALUES ('13', null, '1232', '18337295927', '1242184781', '4', '4', null, '2018-04-19 23:49:00', '2018-04-20 17:57:19');
-INSERT INTO `student` VALUES ('14', null, '吕绍鹏', '18337295927', '943984139', '4', '4', null, '2018-04-20 17:57:59', '2018-04-20 17:57:59');
-INSERT INTO `student` VALUES ('15', null, '会计测试1', '18337295927', '942658425', '4', '4', null, '2018-04-21 08:05:02', '2018-04-21 08:05:30');
+INSERT INTO `student` VALUES ('2', '2016040539', '路不通', '18337295927', '1242184781', '1', '3', null, '2018-04-15 22:12:34', '2018-04-24 08:22:40');
+INSERT INTO `student` VALUES ('3', '2016040540', '王弱', '18654855621', '854254524', '1', '3', '', '2018-04-17 08:44:52', '2018-04-24 08:22:47');
+INSERT INTO `student` VALUES ('4', '2016040541', '刘二彬', '15688559981', '487546331', '1', '3', null, '2018-04-17 08:46:40', '2018-04-24 08:22:57');
+INSERT INTO `student` VALUES ('5', '2016040542', '赵地短', '15642546841', '456887412', '1', '3', null, '2018-04-17 08:47:04', '2018-04-24 08:23:01');
+INSERT INTO `student` VALUES ('6', '2016040543', '胡鑫扁', '15875565561', '557845355', '1', '3', null, '2018-04-17 08:47:34', '2018-04-24 08:23:05');
+INSERT INTO `student` VALUES ('7', '2016040544', '李佳慧', '12312341234', '12312312331', '2', '3', null, '2018-04-17 21:23:43', '2018-04-24 08:23:08');
+INSERT INTO `student` VALUES ('8', '2016040545', '12312', '18337295927', '958474738', '2', '3', null, '2018-04-17 21:26:52', '2018-04-24 08:23:12');
+INSERT INTO `student` VALUES ('9', '2016040546', '1231', '18337295927', '958474738', '2', '3', null, '2018-04-19 08:46:02', '2018-04-24 10:02:16');
+INSERT INTO `student` VALUES ('10', '2016040547', '毕割接', '15155682235', '568424568', '3', '3', null, '2018-04-19 11:48:14', '2018-04-24 10:02:20');
+INSERT INTO `student` VALUES ('11', '2016040548', '刘三彬', '18565478564', '236598', '4', '4', null, '2018-04-19 16:47:14', '2018-04-24 10:02:23');
+INSERT INTO `student` VALUES ('12', '2016040549', '是多少', '15341231234', '545785', '4', '4', null, '2018-04-19 16:50:56', '2018-04-24 10:02:26');
+INSERT INTO `student` VALUES ('13', '2016040550', '1232', '18337295927', '1242184781', '4', '4', null, '2018-04-19 23:49:00', '2018-04-24 10:02:32');
+INSERT INTO `student` VALUES ('14', '2016040551', '吕绍鹏', '18337295927', '943984139', '4', '4', null, '2018-04-20 17:57:59', '2018-04-24 10:02:35');
+INSERT INTO `student` VALUES ('15', '2016040552', '会计测试1', '18337295927', '942658425', '4', '4', null, '2018-04-21 08:05:02', '2018-04-24 10:02:40');
+INSERT INTO `student` VALUES ('16', '2016040553', '吕小南', '18337295927', '94984123', '6', '5', null, '2018-04-24 09:16:14', '2018-04-24 10:02:42');
+INSERT INTO `student` VALUES ('17', '2016040554', '必过姐', '18223722238', '1242184781', '6', '5', null, '2018-04-24 10:01:54', '2018-04-24 10:02:46');
 
 -- ----------------------------
 -- Table structure for student_curriculum
