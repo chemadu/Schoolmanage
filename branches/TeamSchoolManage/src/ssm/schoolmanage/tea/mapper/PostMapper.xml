@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ssm.schoolmanage.stu.mapper.PostMapper">
-<select id="getAllPost" resultMap="ssm.schoolmanage.entity.Post">
+<mapper namespace="ssm.schoolmanage.tea.mapper.PostMapper">
+<select id="getAllPost" resultType="ssm.schoolmanage.entity.Post">
   SELECT * FROM `post`
 </select>
 <insert id="addPost" parameterType="ssm.schoolmanage.entity.Post">
