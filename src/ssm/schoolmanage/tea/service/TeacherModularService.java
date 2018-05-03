@@ -18,7 +18,6 @@ public class TeacherModularService implements TeacherModularServiceDao {
 	//全部模块
 	@Override
 	public List<Modular> AllModular() {
-		
 		return teacherModularMapper.AllModular();
 	}
 

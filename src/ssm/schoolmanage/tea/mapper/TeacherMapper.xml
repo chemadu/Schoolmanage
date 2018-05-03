@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="ssm.schoolmanage.tea.mapper.TeacherMapper">
+
+	<!-- 全部教师 -->
+	<select id="AllTeacher" resultType="ssm.schoolmanage.entity.Teacher">
+	SELECT * FROM teacher
+	</select>
+	
+</mapper>
