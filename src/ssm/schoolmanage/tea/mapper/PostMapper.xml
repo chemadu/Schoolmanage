@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.schoolmanage.stu.mapper.PostMapper">
+<select id="getAllPost" resultMap="ssm.schoolmanage.entity.Post">
+  SELECT * FROM `post`
+</select>
+<insert id="addPost" parameterType="ssm.schoolmanage.entity.Post">
+insert into post (post_name,post_remark,post_creattime,post_updatetime)
+values(#{post_name},#{post_remark},#{post_creattime},#{post_updatetime})
+</insert>
+<update id="updatePost" parameterType="ssm.schoolmanage.entity.Post">
+update post
+<set>
+post_name=#{post_name},post_remark=#{post_remark},post_creattime=#{post_creattime},post_updatetime=#{post_updatetime}
+</set>
+where post_id=#{post_id}
+</update>
+<delete id="delPost">
+DELETE  FROM `tb_members` where post_id=#{post_id}
+</delete>
+</mapper>
