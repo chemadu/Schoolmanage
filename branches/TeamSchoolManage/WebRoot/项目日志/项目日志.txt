@@ -1,34 +1,34 @@
 2018/4/21
--������ssm.schoolmanage.tea.controller
--��������   ģ������+controller
--�����controller��ֻ��д�����ģ���йص����ݷ���·��
+-你们在ssm.schoolmanage.tea.controller
+-命名方法   模块名称+controller
+-在这个controller中只能写跟这个模块有关的内容访问路径
 
 
--��ssm.schoolmanage.tea.servicedao��д���ӿ�
--Ȼ����ssm.schoolmanage.tea.service��д������
--��������   ģ������+service
--�����service��ֻ��д�����ģ���йص��߼�
+-在ssm.schoolmanage.tea.servicedao中写个接口
+-然后在ssm.schoolmanage.tea.service中写方法体
+-命名方法   模块名称+service
+-在这个service中只能写跟这个模块有关的逻辑
 
 
 
--WebRoot�е�student��teacher�ļ�������д ѧ����½ �� ������Ա��½����ʾ�Ĳ�ͬҳ��
--����Ա�������ַ�ѧ����ɫ  ���ڻ���Ȩ�޵Ĺ������������ǵ�Ȩ��  Ŀǰ�Ȳ�����½����
--����ʦ������ù������ķ�ʽ����Ȩ�ޣ����ھ�ֻ��Ҫ�ȰѸ���ҳ��Ļ�������������
+-WebRoot中的student跟teacher文件夹用来写 学生登陆 跟 ‘管理员登陆’显示的不同页面
+-管理员包括各种非学生角色  后期会有权限的管理来分配他们的权限  目前先不做登陆功能
+-张老师会教配置过滤器的方式分配权限，现在就只需要先把各个页面的基础功能做出来
 
 
--���к���Ҫ��һ��  
--   ����˵������дѧ��������controller��ʱ��  ��Ҫ�õ��༶��controller��ߡ���ʾ���а༶�� ���������
--   ������������������ȫ�������Ҫ�󣬾���Ҫ��дһ�������ˣ����ﲻ��ֱ���޸ġ���ʾ���а༶�� ���������
--   Ҫ��aop�ķ�ʽ��дһ��������һ����ס �����޸ı���д���Ĵ��롣
+-还有很重要的一点  
+-   比如说：当你写学生管理的controller的时候  需要用到班级的controller里边‘显示所有班级’ 这个方法，
+-   而里边这个方法并不完全符合你的要求，就需要重写一个方法了，这里不能直接修改‘显示所有班级’ 这个方法。
+-   要用aop的方式重写一个方法。一定记住 不能修改别人写过的代码。
 
 
--��д��ʱ���޸����ݿ��ֶε�ʱ�� �������ĵ��б������� �ĸ������ĸ��ֶ�
+-编写的时候修改数据库字段的时候 必须在文档中标明改了 哪个表的哪个字段
 -----------------------------------------------------------------------------------------------------------------------------------
 
 -2018/4/23
 
-���ݿ�school������Ϊschoolstatus,�����޸ĵ�����school_num��Ψһ��
+数据库school表改名为schoolstatus,并且修改的索引school_num是唯一的
 
 --------------------------------------------------------------------------------------------------------
 -2018/4/24
-���ݿ⻻������ļ�����ߵİɡ��ĵĶ����Ƚ϶ࡣ
+数据库换成这个文件夹里边的吧、改的东西比较多。
