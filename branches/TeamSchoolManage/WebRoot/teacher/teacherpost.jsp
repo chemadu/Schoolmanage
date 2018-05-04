@@ -68,7 +68,7 @@
 //				$('#fm').form('load',row);
 				$("#post_name").val(row.post_name);
 				$("#post_remark").val(row.post_remark);
-				url="/TeamSchoolManage/UpdatePost.action?id="+row.post_id;
+				url="/TeamSchoolManage/UpdatePost.action?post_id="+row.post_id;
 			}
 			
 			function closeDepartmentDialog(){
