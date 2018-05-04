@@ -5,10 +5,36 @@
 
 
 <mapper namespace="ssm.schoolmanage.tea.mapper.TeacherMapper">
-
+	
+	<select id="AllPost" resultType="ssm.schoolmanage.entity.Post">
+		select * from post
+	</select>
+	
 	<!-- 全部教师 -->
 	<select id="AllTeacher" resultType="ssm.schoolmanage.entity.Teacher">
-	SELECT * FROM teacher
+		SELECT * FROM teacher
 	</select>
+	
+	<!-- 添加教师信息 -->
+	<insert id="addTeacher" parameterType="ssm.schoolmanage.entity.Teacher">
+		<!-- <selectKey keyProperty="teach_id" ></selectKey> -->
+		insert into teacher
+		(teach_creattime,teach_name,teach_office)
+		values(
+		#{teach_creattime},
+		#{teach_name},
+		#{teach_office}
+		)
+	</insert>
+	
+	<update id="updateTeacher" parameterType="ssm.schoolmanage.entity.Teacher">
+		update teacher
+		<set>
+			teach_creattime=#{teach_creattime},
+			teach_name=#{teach_name},
+			teach_office=#{teach_office}
+		</set>
+		where teach_id=#{teach_id}
+	</update>
 	
 </mapper>
