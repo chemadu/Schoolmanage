@@ -27,7 +27,7 @@ public class PostMapperService implements PostMapperServiceDao {
 
 	@Override
 	public int updatePost(Post p) {
-		return postMapper.addPost(p);
+		return postMapper.updatePost(p);
 	}
 
 	@Override
