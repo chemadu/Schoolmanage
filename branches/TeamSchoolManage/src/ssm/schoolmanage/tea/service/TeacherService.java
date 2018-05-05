@@ -18,8 +18,8 @@ public class TeacherService implements TeacherServiceDao{
 	
 	//查询全部职务
 	@Override
-	public List<Post> AllPost() {
-		return teacherMapper.AllPost();
+	public List<Post> AllPost(Teacher teacher) {
+		return teacherMapper.AllPost(teacher);
 	}
 	
 	//全部教师

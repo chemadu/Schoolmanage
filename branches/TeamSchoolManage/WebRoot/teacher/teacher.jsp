@@ -104,7 +104,7 @@
 					<th data-options="field:'teach_name'" width="10">教师姓名</th>
 					<!-- <th data-options="field:'teach_creattime'" width="10">入职日期</th>
 					<th data-options="field:'post_id'" width="10" hidden="true">职务ID</th> -->
-					<th data-options="field:'post_name'" width="10" >职务</th>
+					<th data-options="field:'post_name'" width="10">职务</th>
 					<th data-options="field:'teach_office'" width="10">是否在职任教</th>
 					<th data-options="field:'teach_updatetime'" width="10" hidden="true">最后一次更新时间</th>
 					<th data-options="field:'teach_comment'" width="10" >备注</th>

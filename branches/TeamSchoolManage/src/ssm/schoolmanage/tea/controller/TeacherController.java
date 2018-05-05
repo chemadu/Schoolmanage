@@ -33,8 +33,8 @@ public class TeacherController {
 	
 	@RequestMapping("/AllPostController.action")
 	@ResponseBody
-	public List<Post> AllPostController(){
-		return teacherService.AllPost();
+	public List<Post> AllPostController(Teacher teacher){
+		return teacherService.AllPost(teacher);
 	}
 	
 	//查询全部教师

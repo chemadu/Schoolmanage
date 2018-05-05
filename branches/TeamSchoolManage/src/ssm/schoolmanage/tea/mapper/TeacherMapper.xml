@@ -12,7 +12,7 @@
 	
 	<!-- 全部教师 -->
 	<select id="AllTeacher" resultType="ssm.schoolmanage.entity.Teacher">
-		SELECT * FROM teacher
+		SELECT * FROM teacher 
 	</select>
 	
 	<!-- 添加教师信息 -->
