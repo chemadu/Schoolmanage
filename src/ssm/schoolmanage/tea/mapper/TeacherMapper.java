@@ -11,7 +11,7 @@ public interface TeacherMapper {
 	 * 查询全部职务
 	 * @return
 	 */
-	List<Post> AllPost();
+	List<Post> AllPost(Teacher teacher);
 	/**
 	 * 查询全部教师
 	 * @return
