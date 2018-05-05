@@ -19,7 +19,7 @@
 -在ssm.schoolmanage.tea.servicedao中写个接口
 -然后在ssm.schoolmanage.tea.service中写方法体
 -命名方法   模块名称+service
--在这个service中只能写跟这个模块有关的逻辑
+-在这个service中只能写跟这个模块有关的逻辑 ss
 
 
 
