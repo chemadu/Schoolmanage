@@ -11,7 +11,7 @@ insert into post (post_name,post_remark,post_creattime,post_updatetime)
 values(#{post_name},#{post_remark},#{post_creattime},#{post_updatetime})
 </insert>
 <update id="updatePost" parameterType="ssm.schoolmanage.entity.Post">
-update post
+update `post`
 <set>
 post_name=#{post_name},post_remark=#{post_remark},post_creattime=#{post_creattime},post_updatetime=#{post_updatetime}
 </set>
